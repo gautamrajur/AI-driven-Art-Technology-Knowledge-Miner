@@ -1,7 +1,7 @@
 # Art & Technology Knowledge Miner
 
-[![CI/CD Pipeline](https://github.com/suhasramanand/art-tech-knowledge-miner/actions/workflows/ci.yaml/badge.svg)](https://github.com/suhasramanand/art-tech-knowledge-miner/actions/workflows/ci.yaml)
-[![Documentation](https://github.com/suhasramanand/art-tech-knowledge-miner/actions/workflows/pages.yaml/badge.svg)](https://suhasramanand.github.io/art-tech-knowledge-miner/)
+[![CI/CD Pipeline](https://github.com/gautamrajur/art-tech-knowledge-miner/actions/workflows/ci.yaml/badge.svg)](https://github.com/gautamrajur/art-tech-knowledge-miner/actions/workflows/ci.yaml)
+[![Documentation](https://github.com/gautamrajur/art-tech-knowledge-miner/actions/workflows/pages.yaml/badge.svg)](https://gautamrajur.github.io/art-tech-knowledge-miner/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![React 18](https://img.shields.io/badge/react-18-blue.svg)](https://reactjs.org/)
@@ -34,7 +34,7 @@ The Art & Technology Knowledge Miner is a comprehensive platform that discovers,
 
 ```bash
 # Clone the repository
-git clone https://github.com/suhasramanand/art-tech-knowledge-miner.git
+git clone https://github.com/gautamrajur/art-tech-knowledge-miner.git
 cd art-tech-knowledge-miner
 
 # Start all services
@@ -315,8 +315,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-- 📖 [Documentation](https://suhasramanand.github.io/art-tech-knowledge-miner/)
-- 🐛 [Issue Tracker](https://github.com/suhasramanand/art-tech-knowledge-miner/issues)
-- 💬 [Discussions](https://github.com/suhasramanand/art-tech-knowledge-miner/discussions)
+- 📖 [Documentation](https://gautamrajur.github.io/art-tech-knowledge-miner/)
+- 🐛 [Issue Tracker](https://github.com/gautamrajur/art-tech-knowledge-miner/issues)
+- 💬 [Discussions](https://github.com/gautamrajur/art-tech-knowledge-miner/discussions)
 - 📧 [Email Support](mailto:suhasreddy024@gmail.com)
 

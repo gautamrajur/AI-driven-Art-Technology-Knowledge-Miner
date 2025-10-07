@@ -1,0 +1,135 @@
+# Art & Technology Knowledge Miner Configuration
+# Default queries and vocabulary for discovering art-tech intersections
+
+default_queries:
+  - "artificial intelligence in art"
+  - "computer vision in museums"
+  - "robotics performance art"
+  - "AR VR exhibitions"
+  - "generative art hardware"
+  - "digital art installations"
+  - "machine learning creative tools"
+  - "interactive art technology"
+  - "AI art generation"
+  - "virtual reality galleries"
+  - "augmented reality art"
+  - "computational creativity"
+  - "haptic art interfaces"
+  - "3D printing art"
+  - "blockchain art NFTs"
+  - "computer music composition"
+  - "algorithmic art"
+  - "digital fabrication art"
+  - "sensor-based installations"
+  - "projection mapping art"
+
+art_terms:
+  - "art"
+  - "artist"
+  - "artwork"
+  - "exhibition"
+  - "gallery"
+  - "museum"
+  - "installation"
+  - "sculpture"
+  - "painting"
+  - "drawing"
+  - "photography"
+  - "video"
+  - "performance"
+  - "creative"
+  - "aesthetic"
+  - "visual"
+  - "artistic"
+  - "design"
+  - "craft"
+  - "culture"
+  - "heritage"
+  - "collection"
+  - "curator"
+  - "artistic practice"
+  - "contemporary art"
+  - "digital art"
+  - "media art"
+  - "new media"
+  - "interactive art"
+  - "generative art"
+
+tech_terms:
+  - "artificial intelligence"
+  - "machine learning"
+  - "computer vision"
+  - "robotics"
+  - "augmented reality"
+  - "virtual reality"
+  - "AR"
+  - "VR"
+  - "AI"
+  - "ML"
+  - "algorithm"
+  - "software"
+  - "hardware"
+  - "sensor"
+  - "interface"
+  - "interaction"
+  - "digital"
+  - "computational"
+  - "automation"
+  - "data"
+  - "neural network"
+  - "deep learning"
+  - "computer graphics"
+  - "3D printing"
+  - "laser cutting"
+  - "CNC"
+  - "microcontroller"
+  - "Arduino"
+  - "Raspberry Pi"
+  - "IoT"
+  - "blockchain"
+  - "NFT"
+  - "cryptocurrency"
+  - "haptic"
+  - "projection"
+  - "mapping"
+  - "tracking"
+  - "recognition"
+  - "generation"
+  - "synthesis"
+
+# Crawling configuration
+crawl_config:
+  max_pages_per_query: 10
+  max_total_pages: 100
+  respect_robots_txt: true
+  user_agent: "art-tech-miner-bot/1.0"
+  request_delay: 1.0  # seconds between requests
+  timeout: 30  # seconds
+  max_retries: 3
+  
+# Content filtering
+content_filters:
+  min_content_length: 500  # minimum characters
+  max_content_length: 50000  # maximum characters
+  require_both_art_and_tech: true  # must contain both art and tech terms
+  min_art_terms: 1
+  min_tech_terms: 1
+  
+# Processing configuration
+processing:
+  chunk_size: 1000
+  chunk_overlap: 200
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  summarization_model: "facebook/bart-large-cnn"
+  max_summary_length: 150
+  
+# Trend analysis
+trends:
+  date_formats:
+    - "%Y-%m-%d"
+    - "%Y-%m"
+    - "%Y"
+    - "%B %d, %Y"
+    - "%d %B %Y"
+  min_samples_for_trend: 5
+  significance_threshold: 0.05

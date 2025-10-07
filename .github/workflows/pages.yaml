@@ -1,0 +1,34 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'docs/**' ]
+
+jobs:
+  deploy-docs:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install MkDocs
+      run: |
+        pip install mkdocs mkdocs-material mkdocs-mermaid2-plugin
+    
+    - name: Build documentation
+      run: |
+        cd docs
+        mkdocs build
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/site
+        cname: art-tech-miner.dev

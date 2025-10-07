@@ -1,0 +1,101 @@
+version: '3.8'
+
+services:
+  # ChromaDB vector database
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: art-tech-chromadb
+    ports:
+      - "8001:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - CHROMA_SERVER_HOST=0.0.0.0
+      - CHROMA_SERVER_HTTP_PORT=8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - art-tech-network
+
+  # Redis for background tasks
+  redis:
+    image: redis:7-alpine
+    container_name: art-tech-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - art-tech-network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: art-tech-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./pipeline:/app/pipeline
+      - ./backend:/app
+      - chroma_data:/app/chroma_db
+    environment:
+      - CHROMA_PERSIST_DIRECTORY=/app/chroma_db
+      - COLLECTION_NAME=art_tech_knowledge
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    depends_on:
+      chromadb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - art-tech-network
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: art-tech-frontend
+    ports:
+      - "5173:80"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - art-tech-network
+
+volumes:
+  chroma_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  art-tech-network:
+    driver: bridge

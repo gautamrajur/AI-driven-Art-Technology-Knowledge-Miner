@@ -320,12 +320,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 💬 [Discussions](https://github.com/suhasramanand/art-tech-knowledge-miner/discussions)
 - 📧 [Email Support](mailto:suhasreddy024@gmail.com)
 
-## 🌟 Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=suhasramanand/art-tech-knowledge-miner&type=Date)](https://star-history.com/#suhasramanand/art-tech-knowledge-miner&Date)
-
----
-
-**Built with ❤️ by the Art-Tech Knowledge Miner Team**
-
-*Discovering the future of art-technology intersections, one search at a time.*
